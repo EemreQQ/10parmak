@@ -20,8 +20,7 @@ namespace _10parmak
     {
 
         List<Button> b = new List<Button>();
-        
-        int j = 0;
+        int lastV = 0;
         int counter = 0;
         Dictionary<char,int> istatistik= new Dictionary<char,int>();
 
@@ -41,7 +40,7 @@ namespace _10parmak
             // Combo Box
             listBox1.Font = new Font(listBox1.Font.FontFamily, 14);
             
-        }
+                }
 
         public void Shuffle(char[] chars, int start, int end)
         {
@@ -109,6 +108,7 @@ namespace _10parmak
             textBox1.Focus();
         }
 
+        
         private void button4_Click(object sender, EventArgs e)
         {
 
@@ -132,7 +132,8 @@ namespace _10parmak
             textBox1.Focus();
         }
 
-               
+        
+        
         public void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = comboBox1.SelectedIndex;
@@ -145,6 +146,7 @@ namespace _10parmak
         }
 
         
+
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             string s = listBox1.SelectedItem.ToString();
