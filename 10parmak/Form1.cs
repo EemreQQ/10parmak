@@ -21,6 +21,7 @@ namespace _10parmak
 
         List<Button> b = new List<Button>();
         int lastV = 0;
+        int j;
         int counter = 0;
         Dictionary<char,int> istatistik= new Dictionary<char,int>();
 
@@ -205,7 +206,7 @@ namespace _10parmak
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (checkBox1.Checked) button1_Click(sender, e);
+            if (checkBox1.Checked) comboBox1.SelectedIndex = 0;
             if (checkBox2.Checked) label1.Text = counter.ToString();
         }
 
@@ -234,8 +235,9 @@ namespace _10parmak
             dataGridView1.DataSource= ist;
 
            
-            //MessageBox.Show(@"Tablo,aslında basmak istediğiniz tuşu yani bir sonraki harfe yanlış basıldığında kayıt yapar. " +
-                //"Örneğin \"F - 5\" yazıyorsa F'basmak isterken 5 kez yanlış tuşa bastığınızı gösterir. ");
+                /* Nasıl Çalışır? 
+                 F - 5 yazıyorsa F'basmak isterken 5 kez yanlış tuşa bastığınızı gösterir.
+                */
         }
     }
 }
