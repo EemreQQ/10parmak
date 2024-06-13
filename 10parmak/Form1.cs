@@ -20,7 +20,7 @@ namespace _10parmak
     {
 
         List<Button> b = new List<Button>();
-        
+        int lastV = 0;
         int j = 0;
         int counter = 0;
         Dictionary<char,int> istatistik= new Dictionary<char,int>();
