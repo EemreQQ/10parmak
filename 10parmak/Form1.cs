@@ -33,7 +33,7 @@ namespace _10parmak
             comboBox1.Items.Add("2.seviye");
             comboBox1.Items.Add("3.seviye");
             comboBox1.Items.Add("4.seviye");
-            comboBox1.Items.Add("5.seviye");
+            comboBox1.Items.Add("5.seviye");          
 
             if (!checkBox2.Checked) label1.Visible = false;
             label1.Font = new Font(label1.Font.FontFamily, 9);
@@ -41,7 +41,7 @@ namespace _10parmak
             // Combo Box
             listBox1.Font = new Font(listBox1.Font.FontFamily, 14);
             
-                }
+        }
 
         public void Shuffle(char[] chars, int start, int end)
         {
@@ -162,7 +162,7 @@ namespace _10parmak
                 }
                 e.Handled = true;
             }
-            else j++;
+            else { j++; }
             if (j == s.Length) // J sayacı kelimeye eşit mi?
             {
                 if (listBox1.SelectedIndex + 1 >= listBox1.Items.Count)
@@ -196,24 +196,37 @@ namespace _10parmak
         {
             checkBox1.Checked = Properties.Settings.Default.CheckboxValue;
             checkBox2.Checked = Properties.Settings.Default.CheckBoxSayac;
-
+            checkBox3.Checked = Properties.Settings.Default.Image;
         }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.CheckboxValue = checkBox1.Checked;
-            Properties.Settings.Default.Save();
-        }
-
+   
         private void Form1_Load(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked) comboBox1.SelectedIndex = 0;
+        {   
+            if(checkBox1.Checked) { comboBox1.SelectedIndex = 0; }
             if (checkBox2.Checked) label1.Text = counter.ToString();
+            if (!checkBox3.Checked)
+            {
+                pictureBox1.Hide();
+                label2.Hide();
+            }
+            else
+            {
+                pictureBox1.Show();
+                label2.Show();
+            }
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.CheckBoxSayac = checkBox2.Checked;
             Properties.Settings.Default.Save();
+            if (!checkBox2.Checked)
+            {
+                label1.Hide();
+            }
+            else
+            {
+                label1.Show();
+            }
         }
 
         private void label1_TextChanged(object sender, EventArgs e)
@@ -221,23 +234,45 @@ namespace _10parmak
             label1.Text = counter.ToString();
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void ayrıntılıHataSayısıToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             DataTable ist = new DataTable();
             ist.Columns.Add("Bu harfe basmak isterken");
             ist.Columns.Add("yapılan yanlış tuş vuruşu");
+            
 
-            foreach (KeyValuePair<char,int> item in istatistik)
+            foreach (KeyValuePair<char, int> item in istatistik)
             {
                 ist.Rows.Add(item.Key, item.Value);
             }
-           
-            dataGridView1.DataSource= ist;
+            Form2 form = new Form2();
+            MessageBox.Show("Nasıl Çalışır? \nF - 5 yazıyorsa F'basmak isterken 5 kez yanlış tuşa bastığınızı gösterir.");
+            form.dataGridView1.DataSource = ist;
+            form.ShowDialog();
 
-           
-                /* Nasıl Çalışır? 
-                 F - 5 yazıyorsa F'basmak isterken 5 kez yanlış tuşa bastığınızı gösterir.
-                */
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Image = checkBox3.Checked;
+            Properties.Settings.Default.Save();
+
+            if (!checkBox3.Checked)
+            {
+                pictureBox1.Hide();
+                label2.Hide();
+            }
+            else
+            {
+                pictureBox1.Show();
+                label2.Show();
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.CheckboxValue = checkBox1.Checked;
+            Properties.Settings.Default.Save();           
         }
     }
 }
