@@ -1,5 +1,5 @@
 # Features
-- Hata takibi(basit ve detaylı) basit:Yapılan hata adedini gösterir detaylı: hangi tuşa basmaya çalışırken kaç kez hata yaptığınızı gösterir.
+- Hata takibi(basit ve detaylı) basit:Yapılan hata adedini gösterir. Detaylı: hangi tuşa basmaya çalışırken kaç kez hata yaptığınızı gösterir.
 - 1.Seviyeden başla/başlama.
 - Parmaklarınızın olması gereken konumu gösteren bir resim
 
